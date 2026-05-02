@@ -2,7 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-app.use(cors()); // Allows Blogger to talk to your API
+app.use(cors());
+
+// --- FIX: THIS STOPS THE "NOT FOUND" ERROR ON YOUR MAIN LINK ---
+app.get('/', (req, res) => {
+    res.send('<h2>Biotech Dissertation API is running successfully!</h2><p>Your server is live and ready to generate topics.</p>');
+});
+// ----------------------------------------------------------------
 
 // Dynamic Generation Logic
 const generators = {
